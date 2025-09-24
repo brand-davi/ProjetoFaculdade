@@ -1,0 +1,42 @@
+@model IEnumerable<ProjectManagerMvc.Models.Project>
+@{
+    ViewData["Title"] = "Projetos";
+}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Projetos</h3>
+    @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+    {
+        <a class="btn btn-primary" href="/Projects/Create">Novo</a>
+    }
+</div>
+<div class="card p-3">
+<table class="table align-middle">
+    <thead>
+        <tr>
+            <th>Nome</th><th>Gerente</th><th>Início</th><th>Prev. Término</th><th>Status</th><th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.Manager?.FullName</td>
+                <td>@p.StartDate.ToString("dd/MM/yyyy")</td>
+                <td>@(p.PlannedEndDate?.ToString("dd/MM/yyyy"))</td>
+                <td><span class="badge text-bg-info">@p.Status</span></td>
+                <td class="text-end">
+                    @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                    {
+                        <a class="btn btn-sm btn-outline-primary" href="/Projects/Edit/@p.Id">Editar</a>
+                        <form asp-action="Delete" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@p.Id" />
+                            <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Excluir projeto?')">Excluir</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
