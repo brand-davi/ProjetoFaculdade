@@ -194,3 +194,12 @@ ProjectManagerMvc/
 ## 10) Licença / Uso
 Projeto didático, pronto para servir como base em trabalhos acadêmicos e provas técnicas.  
 Sugestões de melhoria: paginação, validações de CPF, logs de auditoria, anexos em tarefas.
+
+## 11) Arquitetura (fluxo MVC + persistência)
+<img width="3840" height="596" alt="diagrama_arquitetura" src="https://github.com/user-attachments/assets/bc1c2f9d-2ca7-446a-a2c9-3e6ed35adeda" />
+
+## 12) Diagrama ER (tabelas e relações)
+<img width="2963" height="3840" alt="Der" src="https://github.com/user-attachments/assets/1b30715a-182e-46c0-9ebb-f7a193910c89" />
+
+## 13) Diagrama de Classes (Models)
+<img width="3235" height="3840" alt="diagrama_classes" src="https://github.com/user-attachments/assets/5a90b07d-fda7-4020-870e-cbb7bf3e9d97" />
